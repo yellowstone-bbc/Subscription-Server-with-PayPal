@@ -1,0 +1,55 @@
+For reference:
+
+---- CREATE ORDER MANUAL ----
+	/*
+	@GetMapping("/createOrder2")
+	public @ResponseBody String CreateOrder2() {
+		try {
+			String url = baseUrl + "/v2/checkout/orders";
+			String auth = clientId + ":" + clientSecret;
+			byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(StandardCharsets.UTF_8));
+			String authHeaderValue = "Basic " + new String(encodedAuth);
+
+			URL obj = new URL(url);
+			HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+			con.setRequestMethod("POST");
+			con.setRequestProperty("accept", "application/json");
+			con.setRequestProperty("content-type", "application/json");
+			con.setRequestProperty("accept-language", "en_US");
+			con.setRequestProperty("Authorization", authHeaderValue);
+
+			String requestObject = "{" + "  \"intent\": \"CAPTURE\"," + "  \"purchase_units\": [" + "    {"
+					+ "      \"reference_id\": \"PUHF\"," + "      \"amount\": {"
+					+ "        \"currency_code\": \"INR\"," + "        \"value\": \"100.00\"" + "      }" + "    }"
+					+ "  ]," + "  \"application_context\": {" + "    \"return_url\": \"\"," + "    \"cancel_url\": \"\""
+					+ "  }" + "}";
+
+			// Send request
+			con.setDoOutput(true);
+			DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+			wr.writeBytes(requestObject.toString());
+			wr.flush();
+			wr.close();
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			String jsonString = response.toString();
+			JSONObject obj1 = new JSONObject(jsonString);
+			String order_id = obj1.getString("id");
+
+			// Print the response
+			System.out.println(response.toString());
+			return order_id;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "Error Occured";
+		}
+	}
+	*/
+

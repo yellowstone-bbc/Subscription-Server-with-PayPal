@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Check Out</title>
+</head>
+<body>
+<div align="center">
+    <h1>Check Out</h1>
+    <br/>
+    <form action="authorize_payment" method="post">
+    <table>
+        <tr>
+            <td>Subscription:</td>
+            <td><name="product"/>Monthly</td>
+        </tr>
+        <tr>
+            <td>Sub Total:</td>
+            <td><name="subtotal"/>0.005</td>
+        </tr>
+        <tr>
+            <td>Shipping:</td>
+            <td><name="shipping"/>0.001</td>
+        </tr>    
+        <tr>
+            <td>Tax:</td>
+            <td><name="tax"/>0.003</td>
+        </tr>    
+        <tr>
+            <td>Total Amount:</td>
+            <td><name="total"/>0.01</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Checkout" />
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>
+</body>
+</html>
